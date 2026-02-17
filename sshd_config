@@ -1,0 +1,11 @@
+Port 22
+PermitRootLogin no
+PasswordAuthentication yes
+PermitEmptyPasswords yes
+ChallengeResponseAuthentication no
+UsePAM no
+PrintMotd no
+
+# The Magic: Route 'starwars' user to the RAW python server
+Match User starwars
+    ForceCommand /bin/nc localhost 2324
