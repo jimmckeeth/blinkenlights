@@ -29,3 +29,7 @@ Use the `starwars.dockerfile` if you want to host this yourself. It hosts it bot
   * SSH: `ssh starwars@localhost -p 23456` (No password required)
 * **Stop**:
   * `docker rm -f starwars-server`
+
+---
+
+Inspired by [puxplaying's starshell](https://github.com/puxplaying/starshell). Visit [asciimation.co.nz](https://www.asciimation.co.nz/) to see the original and other projects.
