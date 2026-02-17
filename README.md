@@ -30,6 +30,8 @@ Use the `Dockerfile` if you want to host this yourself via `telnet` (it technica
 * **Stop**:
   * `docker rm -f starwars-server`
 
+I have a small instance running in the cloud until it gets overloaded and goes down: `telnet 141.148.135.224`
+
 ---
 
 Inspired by [puxplaying's starshell](https://github.com/puxplaying/starshell). Visit [asciimation.co.nz](https://www.asciimation.co.nz/) to see the original and other projects.
