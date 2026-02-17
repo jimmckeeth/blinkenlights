@@ -4,8 +4,8 @@ import sys
 import os
 
 # CONFIGURATION
-LOCAL_FILES = ["starwars_fixed.txt", "starwars_latest.txt", "starwars.txt"]
-REMOTE_URL = "https://raw.githubusercontent.com/nitram509/ascii-telnet-server/master/data/starwars.txt"
+LOCAL_FILES = ["starwars.ascii", "starwars_latest.txt", "starwars.txt"]
+REMOTE_URL = "https://raw.githubusercontent.com/jimmckeeth/blinkenlights/refs/heads/main/starwars.txt"
 OUTPUT_FILE = "starwars.jsonl"
 
 FRAME_HEIGHT = 13
@@ -60,7 +60,6 @@ def convert():
             if len(frame_lines) < FRAME_HEIGHT:
                 frame_lines += [""] * (FRAME_HEIGHT - len(frame_lines))
             
-            # --- THE FIX ---
             # We append \x1b[K (Clear Line) to every single line.
             # This ensures that if the new line is shorter than the old one,
             # the remaining characters from the old line are erased.
