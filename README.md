@@ -1,10 +1,10 @@
 # Star Wars Blinkenlights
 
-I was sad to see that `towel.blinkenlights.nl` was offline. It is based on the animation from [asciimation.co.nz](https://www.asciimation.co.nz/), which launched in July 1997. I believe the telnet version launched shortly after that. I don't know if they are related at all. For a while `towel.blinkenlights.nl` said you you accessed it via IPv6 you got full color, but it turns out that was a gag, as the IPv6 version was the same.
+I was sad to see that `towel.blinkenlights.nl` was offline. It is based on the animation from [asciimation.co.nz](https://www.asciimation.co.nz/), which launched in July 1997. I believe the telnet version launched shortly after that. I don't know if they are related at all. For a while `towel.blinkenlights.nl` said if you accessed it via IPv6 you got full color, but it turns out that was only a gag.
 
 > *Don't panic, just remember your towel.*
 
-I've created a clone of `towel.blinkenlights.nl` based on the July 2025 version from [asciimation.co.nz](https://www.asciimation.co.nz/). You can access the raw [starwars.txt](starwars.txt) directly if you rather, or launch a `telnet`~~and `ssh`~~ server via docker.
+I've created a clone of `towel.blinkenlights.nl` based on the July 2025 version from [asciimation.co.nz](https://www.asciimation.co.nz/). You can access the raw [starwars.txt](starwars.txt) directly if you rather, or launch a Telnet server.
 
 The telnet server includes some basic controls:
 
@@ -15,23 +15,52 @@ The telnet server includes some basic controls:
 
 *Note*: Each frame has a different duration.
 
-## Docker server
+## Server
+
+You can run a local Telnet server via Python
+
+```bash
+python3 starwars-server.py
+```
+
+It defaults to port 2323, but that can be changed with the `--port` parameter. Use `--log` for verbose details, and if you want to remove the Telent specific control characters use `--raw` parameter (useful if you are redirecting it via SSH).
+
+then connect
+
+```bash
+telnet localhost 2323
+```
+
+## Docker Server
 
 Use the `Dockerfile` if you want to host this yourself via `telnet` (it technically supports `ssh` too, but there are no controls, so I disabled it for now).
 
-* **Build**:
-  * `docker build -t starwars-server .`
-* **Run**:
-  * `docker run --name starwars-server -d -p 23:2323 starwars-server`
-  * Maps host port `23` (Telnet) to container port `2323`.
+* **Build**: `docker build -t starwars-server .`
+* **Run**: `docker run --name starwars-server -d -p 23:2323 starwars-server`
+  * Maps host port `23` (Telnet) to container port `2323`
 * **Connect**:
   * Telnet: `telnet localhost`
   * ~~SSH: `ssh starwars@localhost -p 23456` (No password required)~~
-* **Stop**:
-  * `docker rm -f starwars-server`
+* **Stop**: `docker rm -f starwars-server`
 
 I have a small instance running in the cloud until it gets overloaded and goes down: `telnet 141.148.135.224`
 
 ---
 
+## Details on the files in the repo
+
+* [`asciimation-dump.js`](asciimation-dump.js) will dump and decompress the ASCII animation from [asciimation.co.nz](https://www.asciimation.co.nz/)
+* [`convert-asciimation.py`](convert-asciimation.py) converts the raw `starwars.txt` into `starwars.jsonl` for the server.
+* [`debug.sh`](debug.sh) simple bash script that loops through rebuilding and launching the container for debugging.
+* [`Dockerfile`](Dockerfile) the container file for creating a server instance
+* [`entrypoint.sh`](entrypoint.sh) used by the `Dockerfile` as the entrypoint
+* [`LICENSE`](LICENSE) GPLv3
+* `README.md` you are reading it right now
+* [`sshd_config`](sshd_config) use by the `Dockerfile` to configure SSH (currently unused)
+* `starwars.jsonl` the JSON Lines version of the Star Wars ASCII animation
+* [`starwars-server.py`](starwars-server.py) python telnet server - reads and displays `starwars.jsonl`
+* [`starwars.txt`](starwars.txt) the raw Star Wars ASCII animation
+
+
 Inspired by [puxplaying's starshell](https://github.com/puxplaying/starshell). Visit [asciimation.co.nz](https://www.asciimation.co.nz/) to see the original and other projects.
+
