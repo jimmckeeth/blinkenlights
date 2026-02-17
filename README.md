@@ -55,7 +55,7 @@ I have a small instance running in the cloud until it gets overloaded and goes d
 * [`Dockerfile`](Dockerfile) the container file for creating a server instance
 * [`entrypoint.sh`](entrypoint.sh) used by the `Dockerfile` as the entrypoint
 * [`LICENSE`](LICENSE) GPLv3
-* `README.md` you are reading it right now
+* `README.md` you are here
 * [`sshd_config`](sshd_config) use by the `Dockerfile` to configure SSH (currently unused)
 * `starwars.jsonl` the JSON Lines version of the Star Wars ASCII animation
 * [`starwars-server.py`](starwars-server.py) python telnet server - reads and displays `starwars.jsonl`
