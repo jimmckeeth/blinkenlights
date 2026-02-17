@@ -2,7 +2,7 @@
 
 I was sad to see that `towel.blinkenlights.nl` was offline. It is based on the animation from [asciimation.co.nz](https://www.asciimation.co.nz/), which launched in July 1997. I believe the telnet version launched shortly after that. I don't know if they are related at all. For a while `towel.blinkenlights.nl` said you you accessed it via IPv6 you got full color, but it turns out that was a gag, as the IPv6 version was the same.
 
-> *Don't panic, just remember you towel.*
+> *Don't panic, just remember your towel.*
 
 I've created a clone of `towel.blinkenlights.nl` based on the July 2025 version from [asciimation.co.nz](https://www.asciimation.co.nz/). You can access the raw [starwars.txt](starwars.txt) directly if you rather, or launch a `telnet`~~and `ssh`~~ server via docker.
 
