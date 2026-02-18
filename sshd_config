@@ -1,4 +1,4 @@
-Port 23456
+Port 2222
 PermitRootLogin no
 PasswordAuthentication yes
 PermitEmptyPasswords yes

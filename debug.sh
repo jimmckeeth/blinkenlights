@@ -18,7 +18,7 @@ echo
 echo "----------------------------"
 echo "running..."
 echo "----------------------------"
-docker run --name starwars-server -d -p 23:2323 -p 23456:23456 starwars-server
+docker run --name starwars-server -d -p 23:2323 -p 2222:2222 starwars-server
 
 echo
 echo "----------------------------"

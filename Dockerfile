@@ -22,6 +22,6 @@ RUN chmod +x /app/entrypoint.sh && \
     chmod 600 /app/sshd_config && \
     chown root:root /app/sshd_config
 
-EXPOSE 22 23
+EXPOSE 2222 2323
 
 CMD ["/app/entrypoint.sh"]
