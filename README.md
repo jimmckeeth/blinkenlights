@@ -6,6 +6,10 @@ I was sad to see that `towel.blinkenlights.nl` was offline. It is based on the a
 
 I've created a clone of `towel.blinkenlights.nl` based on the July 2025 version from [asciimation.co.nz](https://www.asciimation.co.nz/). You can access the raw [starwars.txt](starwars.txt) directly if you rather, or launch a Telnet and/or SSH server.
 
+Sample (at 2x speed)
+
+[![asciicast](https://asciinema.org/a/wmWHh77VSrHp1cnS.svg)](https://asciinema.org/a/wmWHh77VSrHp1cnS)
+
 The Telnet server includes some basic controls:
 
 * `space` = pause
